@@ -15,10 +15,13 @@ import {
 } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import user from "../api/user"
+import UpdateProfileModal from './../components/modals/UpdateProfileModal';
 
 
 const MyAccount = ()=> {
   const [userData, setUserData] = useState(null)
+  const [activate, setActivate] = useState(false)
+  const [option, setOption] = useState(null)
   const getUserInfo = ()=>{
     user.info().then(res => 
       setUserData(res.user
@@ -27,11 +30,16 @@ const MyAccount = ()=> {
       console.log(error)
     })
   }
+  const toggleActivate = (prop)=>{
+    setOption(prop)
+    setActivate(!activate)
+  }
   useEffect(()=>{
     getUserInfo()
   },[])
   return (
     <Container h='100vh'>
+      <UpdateProfileModal option={option} toggleActivate={toggleActivate} activate={activate}/>
       <Card mt='4'>
         <CardHeader>
           <Heading size='md'>Account Settings</Heading>
@@ -46,11 +54,11 @@ const MyAccount = ()=> {
                     Username
                   </Heading>
                   {userData && <Text pt='2' fontSize='sm'>
-                    {userData.name}
+                    {userData.username}
                   </Text>}
                 </Box>
                 <Spacer/>
-                <Link color='blue.400'>
+                <Link onClick={() => toggleActivate('username')} color='blue.400'>
                   Change
                 </Link>
               </Flex>
@@ -66,7 +74,7 @@ const MyAccount = ()=> {
                   </Text>}
                 </Box>
                 <Spacer/>
-                <Link color='blue.400'>
+                <Link onClick={() => toggleActivate('email')} color='blue.400'>
                   Change
                 </Link>
               </Flex>
@@ -82,7 +90,7 @@ const MyAccount = ()=> {
                   </Text>
                 </Box>
                 <Spacer/>
-                <Link color='blue.400'>
+                <Link onClick={() => toggleActivate('password')} color='blue.400'>
                   Change
                 </Link>
               </Flex>

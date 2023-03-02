@@ -23,19 +23,19 @@ const Register = ()=> {
   const navigate = useNavigate()
   const [isPassword, setIsPassword] = useState(true)
   const [form, setForm] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
     role: [1]
   })
   const [isError, setIsError] = useState({
-    name: null,
+    usernamename: null,
     email: null,
     password: null
   })
   const handleUsernameInputChange = (e) => {
-    setForm({...form, name: e.target.value})
-    setIsError({...isError, name: e.target.value === ''})
+    setForm({...form, username: e.target.value})
+    setIsError({...isError, username: e.target.value === ''})
   }
   const handleEmailInputChange = (e) => {
     setForm({...form, email: e.target.value})
@@ -72,10 +72,10 @@ const Register = ()=> {
       <Container>
         <form onSubmit={handleSubmit}>
           <Center m='5' fontSize='x-large' color={textColor}>Register</Center>
-          <FormControl isInvalid={isError.name}>
+          <FormControl isInvalid={isError.username}>
             <FormLabel color={textColor}>Username</FormLabel>
-            <Input color={textColor} type='text' value={form.name} onChange={handleUsernameInputChange} />
-            {!isError.name ? (
+            <Input color={textColor} type='text' value={form.username} onChange={handleUsernameInputChange} />
+            {!isError.username ? (
               <FormHelperText></FormHelperText>
               ) : (
                 <FormErrorMessage mb='1.5'>Username is required.</FormErrorMessage>

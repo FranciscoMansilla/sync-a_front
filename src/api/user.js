@@ -30,6 +30,15 @@ const user = {
     } catch (err) {
       return err.response.data;
     }
+  },
+  update: async(data)=>{
+    try {
+      const { data: res } = await api.patch("/user/update", data);
+      return res;
+    } catch (err) {
+      console.log(err)
+      return err.response.data;
+    }
   }
 }
 

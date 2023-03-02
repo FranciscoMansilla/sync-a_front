@@ -35,13 +35,18 @@ const Nav = ()=> {
       <Box>
         <ColorModeSwitcher/>
         {sessionInfo && <Menu>
-          <MenuButton as={Avatar} name={sessionInfo.name} src={sessionInfo.profileImage} colorScheme='pink'>
+          <MenuButton as={Avatar} name={sessionInfo.usename} src={sessionInfo.profileImage} colorScheme='pink'>
           </MenuButton>
           <MenuList>
             <MenuGroup title='Profile'>
               <MenuItem>
                 <Link to={routes.my_account}>
-                  My Account
+                  Cuenta
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to={routes.my_store}>
+                  Mi tienda
                 </Link>
               </MenuItem>
               <MenuItem>Payments </MenuItem>
