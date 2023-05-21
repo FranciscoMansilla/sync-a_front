@@ -7,7 +7,7 @@ import LayoutNoUser from '../layout/LayoutNoUser';
 import Register from '../pages/Register';
 import MyAccount from '../pages/MyAccount';
 import MyStore from './../pages/MyStore';
-import NewProduct from './../pages/NewProduct';
+import NewBeat from './../pages/NewBeat';
 
 const AppRouter = ()=>{
   return(
@@ -16,7 +16,7 @@ const AppRouter = ()=>{
         <Route exact path={routes.home} element={<Home/>} />
         <Route exact path={routes.my_account} element={<MyAccount/>} />
         <Route exact path={routes.my_store} element={<MyStore/>} />
-        <Route exact path={routes.new_product} element={<NewProduct/>} />
+        <Route exact path={routes.new_product} element={<NewBeat/>} />
       </Route>
       <Route element={<LayoutNoUser/>}>
         <Route exact path={routes.login} element={<Login/>} />
